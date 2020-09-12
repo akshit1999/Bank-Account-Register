@@ -1,0 +1,14 @@
+{% extends "base_bootstrap.html" %}
+
+{% block content %}
+  <h1>New User Signup</h1>
+  <p>
+     <a href="{% url 'newuser:newuser_create' %}"> Click here to proceed</a>
+  </p>
+  <p>
+      <a href="/accounts/login">Continue Login</a>
+  </p>
+  <p>
+     <a href="{% url 'newuser:newuser_detail' %}"> Registered user details</a>
+  <p>
+{% endblock %}

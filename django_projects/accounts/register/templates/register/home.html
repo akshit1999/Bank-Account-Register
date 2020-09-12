@@ -1,0 +1,43 @@
+{% extends "base_bootstrap.html" %}
+{% block content %}
+<br><br><br><br><br>
+{% if user.is_authenticated %}
+    {% if not request.user.profile %}
+        <div>
+            <h1> Create a New Profile </h1>
+            <p><a href="{% url 'register:profile_create' %}">Start the registration for the account</a></p>
+        </div>
+    {% endif %}
+{% endif %}
+{% for profile in profiles %}
+    {% if profile.user.id == request.user.id %}
+        <h1> Welcome {{ profile.FirstName }}</h1>
+        <br>
+        <div>
+            <p><a href="{% url 'register:profile_detail' profile.id %}">View Profile</a></p>
+        </div>
+        <br>
+        <div>
+            <p><a href="{% url 'register:profile_delete' profile.id %}">Delete the profile?</a></p>
+        </div>
+        <br>
+        <div>
+            <p><a href="{% url 'register:profile_update' profile.id %}">Update the profile?</a></p>
+        </div>
+        <br>
+    {% endif %}
+{% endfor %}
+    <div>
+        <p><a href="{% url 'register:account_create' %}">Register here for new account</a></p>
+    </div>
+{% for account in accounts %}
+    {% if account.owner.id == request.user.id %}
+        <div>
+            <p><a href="{% url 'register:account_delete' account.id %}">Delete the account?</a></p>
+        </div>
+    {% endif %}
+{% endfor %}
+    <div>
+        <p><a href="{% url 'register:classifier_ocr' %}">Classify</a></p>
+    </div>
+{% endblock %}

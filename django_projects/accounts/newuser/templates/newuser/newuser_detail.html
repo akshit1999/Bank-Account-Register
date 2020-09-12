@@ -1,0 +1,8 @@
+{% extends "base_bootstrap.html" %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <p>{{ user }}</p>
+{% endif %}
+<a href="newuser:all">Back to start</a>
+{% endblock %}

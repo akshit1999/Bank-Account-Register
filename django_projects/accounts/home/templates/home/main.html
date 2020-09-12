@@ -1,0 +1,21 @@
+{% extends "base_bootstrap.html" %}
+{% block head %}
+<title>{{ settings.APP_NAME }}</title>
+{% endblock %}
+{% block content %}
+    <h1> Welcome to {{ settings.APP_NAME }} </h1>
+<br><br>
+<div>
+    <img src="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" style="float: left; width: 66%; margin-right: 20px;">
+</div>
+<br><br><br>
+<div>
+    <p>If you are already a user, Click below on LOG IN.</p>
+    <p><a href="/accounts/login"><button class="btn btn-primary">Log In</button></a></p>
+</div>
+<br>
+<div>
+    <p>If you are not already a user, click here.</p>
+    <p><a href="/newuser/user/create"><button class="btn btn-primary">Sign Up</button></a></p>
+</div>
+{% endblock %}
